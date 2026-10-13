@@ -4,9 +4,9 @@ import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
 
 export default defineConfig({
-  // No custom domain: served at https://norin-web.github.io/getting-out/.
+  // No custom domain: served at https://norin-web.github.io/GTLO/.
   // If a custom domain is added (public/CNAME), switch to "/" in the same commit or every asset 404s.
-  base: "/getting-out/",
+  base: "/GTLO/",
   plugins: [react(), tailwindcss()],
   resolve: { alias: { "@": path.resolve(__dirname, "./src") } },
 });
