@@ -1,6 +1,5 @@
 // Every brand / app fact lives here so names, IDs and emails are never duplicated.
-// PLACEHOLDER values are marked — replace them when the owner sends real data
-// (App Store ID → run the iTunes lookup and refresh `app`).
+
 
 export const site = {
   brand: "Getting Out",
@@ -14,12 +13,12 @@ export const site = {
 };
 
 export const app = {
-  // PLACEHOLDER — App Store ID not provided yet. Swap the id, then refresh
-  // minIOS / category / price from https://itunes.apple.com/lookup?id=<ID>
-  id: "PLACEHOLDER",
-  url: "https://apps.apple.com/app/idPLACEHOLDER",
-  minIOS: "PLACEHOLDER",
-  category: "PLACEHOLDER",
+  id: "6820070749",
+  url: "https://apps.apple.com/app/id6820070749",
+  // App isn't live yet (iTunes lookup returns 0 results, 2026-10-13). After release,
+  // fill these from https://itunes.apple.com/lookup?id=6820070749 — specs hide empty values.
+  minIOS: "",
+  category: "",
 };
 
 export const nav = [
@@ -81,12 +80,14 @@ export const appScreens = [
   { title: "AI Assistant", img: "/images/phone-ai.webp", text: "Ask AI to write or improve a message, then review it before sending. Saved AI chats stay on your device." },
 ];
 
-export const specs: [string, string][] = [
-  ["Platform", `iPhone · iOS ${app.minIOS}`],
-  ["Category", app.category],
-  ["Developer", site.operator],
-  ["Price", "Free download · subscription in app"],
-];
+export const specs: [string, string][] = (
+  [
+    ["Platform", app.minIOS ? `iPhone · iOS ${app.minIOS} or later` : "iPhone"],
+    ["Category", app.category],
+    ["Developer", site.operator],
+    ["Price", "Free download · subscription in app"],
+  ] as [string, string][]
+).filter(([, v]) => v);
 
 export const principles = [
   { title: "Simple from the first step", text: "Find your person, send a request and see its status. No guessing what happens next." },
